@@ -21,10 +21,16 @@ async fn main() -> std::io::Result<()> {
         .service(orders)
         .service(save)
         .service(delete)
-        .service(deletecart))
+        .service(deletecart)
+        .service(health_check))
         .bind(("0.0.0.0", 8080))?
         .run()
         .await
+}
+
+#[get("/health_check")]
+async fn health_check() -> Result<impl Responder> {
+    Ok(HttpResponse::Ok()) 
 }
 
 #[post("/add2cart")]
