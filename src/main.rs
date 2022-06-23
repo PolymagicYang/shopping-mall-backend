@@ -23,7 +23,7 @@ async fn main() -> std::io::Result<()> {
         .service(delete)
         .service(deletecart)
         .service(health_check))
-        .bind(("0.0.0.0", 8080))?
+        .bind(("0.0.0.0", 8000))?
         .run()
         .await
 }
